@@ -54,7 +54,7 @@ with col2:
         "<p style='text-align: center; font-size: 18px;'>Enter your guess:</p>",
         unsafe_allow_html=True
     )
-    guess = st.text_input("Enter your guess:", label_visibility="collapsed")
+    guess = st.text_input("Hi Tala! Enter your guess:", label_visibility="collapsed")
     submitted = st.button("Submit Guess", use_container_width=True)
     hint_clicked = st.button("💡 Get a Hint", use_container_width=True)
 
