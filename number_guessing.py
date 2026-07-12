@@ -34,8 +34,12 @@ highest_num = 100
 
 if "answer" not in st.session_state:
     st.session_state.answer = random.randint(lowest_num, highest_num)
+if "guesses" not in st.session_state:
     st.session_state.guesses = 0
+if "hints_used" not in st.session_state:
     st.session_state.hints_used = 0
+if "history" not in st.session_state:
+    st.session_state.history = []
 
 st.title("Number Guessing Game! 🎯🎯🎯")
 
@@ -58,6 +62,7 @@ if submitted:
     if guess.isdigit():
         guess = int(guess)
         st.session_state.guesses += 1
+        st.session_state.history.append(guess)
 
         if guess < lowest_num or guess > highest_num:
             st.write(f"Please enter a number between {lowest_num} and {highest_num}.")
@@ -83,4 +88,14 @@ if hint_clicked:
     elif st.session_state.hints_used == 3:
         st.info(f"💡 Hint: the sum of its digits is {sum(int(d) for d in str(answer))}.")
     else:
-        st.info("🕵️ No more hints, you're on your own now!")
+        st.info("🕵️ No more hints — you're on your own now!")
+
+if st.session_state.history:
+    st.write("**Your guesses so far:**")
+    history_display = []
+    for g in st.session_state.history:
+        if g == st.session_state.answer:
+            history_display.append(f"{g} ✅")
+        else:
+            history_display.append(str(g))
+    st.write(" → ".join(history_display))
