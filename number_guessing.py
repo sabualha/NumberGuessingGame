@@ -25,6 +25,8 @@ st.markdown("""
         border-color: #ff69b4;
         box-shadow: 0 0 8px rgba(255, 105, 180, 0.5);
         outline: none;
+            
+    
     }
     </style>
 """, unsafe_allow_html=True)
@@ -52,7 +54,10 @@ if not st.session_state.player_name:
             st.session_state.player_name = name_input
             st.rerun()
 else:
-    st.write(f"Hi {st.session_state.player_name}! 👋")
+    st.markdown(
+    f"<p style='text-align: center; font-size: 24px;'>Hi {st.session_state.player_name}! 👋</p>",
+    unsafe_allow_html=True
+)
 
     st.markdown(
         f"<p style='text-align: center; font-size: 24px;'>Select a number between {lowest_num} and {highest_num}.</p>",
