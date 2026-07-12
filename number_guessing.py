@@ -37,7 +37,7 @@ if "answer" not in st.session_state:
     st.session_state.guesses = 0
     st.session_state.hints_used = 0
 
-st.title("🎯 Number Guessing Game! 🎲")
+st.title("Number Guessing Game! 🎯🎯🎯")
 
 st.markdown(
     f"<p style='text-align: center; font-size: 24px;'>Select a number between {lowest_num} and {highest_num}.</p>",
